@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<Pane fx:id="maPane" prefHeight="275.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <BorderPane layoutX="-1.0" prefHeight="275.0" prefWidth="300.0">
+         <top>
+            <MenuBar prefHeight="25.0" prefWidth="128.0" BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File&gt;&gt;">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#chooseDirectory" text="Choose Directory" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="FileType&gt;&gt;">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#setTxt" text="txt" />
+                        <MenuItem mnemonicParsing="false" onAction="#setRtf" text="rtf" />
+                        <MenuItem mnemonicParsing="false" onAction="#setDoc" text="doc" />
+                        <MenuItem mnemonicParsing="false" onAction="#setXls" text="xls" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="ParserMenu">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#parser" text="ParseTV" />
+                        <MenuItem mnemonicParsing="false" onAction="#parserRadio" text="ParseRadio" />
+                        <MenuItem mnemonicParsing="false" onAction="#detailedTVParser" text="DetailedTVParser" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="Merge">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#merge" text="MergeFiles" />
+                     </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <center>
+            <Label fx:id="MyLabel0" alignment="TOP_LEFT" centerShape="false" prefHeight="249.0" prefWidth="263.0" textFill="#ff0606" BorderPane.alignment="TOP_LEFT">
+               <font>
+                  <Font name="PT Sans" size="12.0" />
+               </font></Label>
+         </center>
+      </BorderPane>
+   </children>
+</Pane>
