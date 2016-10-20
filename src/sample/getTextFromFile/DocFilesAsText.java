@@ -1,29 +1,25 @@
-package sample;
+package sample.getTextFromFile;
 
 import org.apache.poi.hwpf.HWPFDocument;
 import org.apache.poi.hwpf.extractor.WordExtractor;
 import org.apache.poi.poifs.filesystem.DirectoryEntry;
 import org.apache.poi.poifs.filesystem.NPOIFSFileSystem;
+import sample.getTextFromFile.FilesAsText;
 
-import javax.swing.text.BadLocationException;
-import javax.swing.text.DefaultStyledDocument;
-import javax.swing.text.rtf.RTFEditorKit;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 
 /**
  * Created by User on 12.03.2016.
  */
 public class DocFilesAsText extends FilesAsText {
 
-    DocFilesAsText(String file) {
+    public DocFilesAsText(String file) {
         super(file);
     }
 
     @Override
-    String asText ()throws IOException {
+    public String asText ()throws IOException {
         String bufstr="";
 
         NPOIFSFileSystem fs=new NPOIFSFileSystem();

@@ -1,4 +1,6 @@
-package sample;
+package sample.getTextFromFile;
+
+import sample.getTextFromFile.FilesAsText;
 
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultStyledDocument;
@@ -10,12 +12,12 @@ import java.io.*;
  */
 public class RtfFilesAsText extends FilesAsText {
 
-    RtfFilesAsText(String file) {
+    public RtfFilesAsText(String file) {
         super(file);
     }
 
     @Override
-    String asText ()throws IOException {
+    public String asText ()throws IOException {
 
         String bufstr="";
 

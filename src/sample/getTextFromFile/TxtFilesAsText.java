@@ -1,6 +1,7 @@
-package sample;
+package sample.getTextFromFile;
 
-import java.io.File;
+import sample.getTextFromFile.FilesAsText;
+
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
@@ -12,12 +13,12 @@ public class TxtFilesAsText extends FilesAsText {
 
 
 
-    TxtFilesAsText(String file) {
+    public TxtFilesAsText(String file) {
         super(file);
     }
 
     @Override
-    String asText ()throws IOException {
+    public String asText ()throws IOException {
         String bufstr="";
         //String output;
         //StringBuilder sb = new StringBuilder();
