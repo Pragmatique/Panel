@@ -10,12 +10,12 @@ import java.io.IOException;
  * Created by User on 19.05.2016.
  */
 public class TVParserDetailed extends TVParser {
-    TVParserDetailed (String dir, SupportedFileTypes sft)
+    public TVParserDetailed (String dir, SupportedFileTypes sft)
             throws IOException, WriteException,EmptyFolderException, IndefinedTypeException{
         super(dir,sft);
     }
 
-    String detailedParser(String person, String buftext){
+    private String detailedParser(String person, String buftext){
         String output = "";
         String[] abzaces=buftext.split("\n");
         for (String abzac:abzaces){

@@ -29,13 +29,13 @@ import javax.swing.text.rtf.RTFEditorKit;
  */
 public class TVParser implements XParser{
 
-    String name="Data.xls";
+    private String name="Data.xls";
 
-    String folder;
+    private String folder;
     //static int indexmethod;
     SupportedFileTypes sft;
 
-    TVParser (String dir, SupportedFileTypes sft)
+    public TVParser (String dir, SupportedFileTypes sft)
             throws IOException, WriteException,EmptyFolderException, IndefinedTypeException{
         folder=dir;this.sft=sft;
         if (dir==null){throw new EmptyFolderException();}
@@ -269,7 +269,7 @@ public class TVParser implements XParser{
 
     }
 
-    private File[] getFileList(String folder){
+    File[] getFileList(String folder){
 
         FilenameFilter fln = new FilenameFilter() {
             @Override

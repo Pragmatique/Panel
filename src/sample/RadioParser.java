@@ -36,7 +36,7 @@ public class RadioParser extends TVParser{
 
     String name="RadioData.xls";
 
-    RadioParser (String dir, SupportedFileTypes sft)
+    public RadioParser (String dir, SupportedFileTypes sft)
             throws IOException, WriteException,EmptyFolderException, IndefinedTypeException{
         super(dir,sft);
     }
