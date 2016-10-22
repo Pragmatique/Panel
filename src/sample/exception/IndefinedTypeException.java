@@ -1,4 +1,4 @@
-package sample;
+package sample.exception;
 
 /**
  * Created by User on 14.03.2016.
