@@ -1,7 +1,6 @@
-package sample;
+package sample.fileMerger;
 
 import jxl.Cell;
-import jxl.CellType;
 import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
@@ -10,14 +9,13 @@ import jxl.write.WritableWorkbook;
 import jxl.write.*;
 import org.apache.poi.hwpf.*;
 import org.apache.poi.hwpf.extractor.WordExtractor;
-import org.apache.poi.hwpf.usermodel.CharacterRun;
-import org.apache.poi.hwpf.usermodel.Range;
-import org.apache.poi.poifs.filesystem.DirectoryEntry;
-import org.apache.poi.poifs.filesystem.NPOIFSFileSystem;
-import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
+import sample.SupportedFileTypes;
+import sample.exception.EmptyFolderException;
+import sample.exception.IndefinedTypeException;
+import sample.fileFactory.FilesFactory;
 
 import java.io.*;
 
@@ -26,11 +24,11 @@ import java.io.*;
  */
 public class FileMerger {
 
-    String folder;
-    SupportedFileTypes fileType;
-    final String fname = "Merged";
+    private String folder;
+    private SupportedFileTypes fileType;
+    private final String fname = "Merged";
 
-    FileMerger(String folder, SupportedFileTypes fileType){this.folder=folder; this.fileType=fileType;}
+    public FileMerger(String folder, SupportedFileTypes fileType){this.folder=folder; this.fileType=fileType;}
 
     private File[] getFileList(){
 
@@ -246,7 +244,7 @@ public class FileMerger {
 
     }
 
-    void merge()throws IndefinedTypeException,EmptyFolderException, IOException{
+    public void merge()throws IndefinedTypeException,EmptyFolderException, IOException{
 
         switch (fileType){
             case TXT:  txtMerger();

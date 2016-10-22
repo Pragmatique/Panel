@@ -1,4 +1,11 @@
-package sample;
+package sample.fileFactory;
+
+import sample.SupportedFileTypes;
+import sample.exception.EmptyFolderException;
+import sample.exception.IndefinedTypeException;
+import sample.getTextFromFile.DocFilesAsText;
+import sample.getTextFromFile.RtfFilesAsText;
+import sample.getTextFromFile.TxtFilesAsText;
 
 import java.io.IOException;
 
@@ -9,14 +16,14 @@ import static sample.SupportedFileTypes.*;
  */
 public class FilesFactory {
 
-    String message = "";
-    SupportedFileTypes fileType;
-    String file ="";
+    public String message = "";
+    private SupportedFileTypes fileType;
+    private String file ="";
 
 
-    FilesFactory (String folder){if (!folder.isEmpty()){this.file=file;}else{message="Please set a directory";};};
+    public FilesFactory (String folder){if (!folder.isEmpty()){this.file=file;}else{message="Please set a directory";};};
 
-    FilesFactory (String folder,SupportedFileTypes fileType)throws IndefinedTypeException,EmptyFolderException{
+    public FilesFactory (String folder,SupportedFileTypes fileType)throws IndefinedTypeException,EmptyFolderException {
 
         if (!folder.isEmpty()){this.file=folder;}
         else{message="Please set a directory";throw new EmptyFolderException();};
@@ -28,7 +35,7 @@ public class FilesFactory {
         if (this.fileType==null){message="Unsupported fileType";throw new IndefinedTypeException();};
     }
 
-    String buildText()throws IndefinedTypeException,IOException{
+    public String buildText()throws IndefinedTypeException,IOException{
         String output="";
         switch (fileType){
             case TXT:  try {output = new TxtFilesAsText(file).asText();}
