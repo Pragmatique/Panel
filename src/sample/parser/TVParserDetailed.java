@@ -2,10 +2,11 @@ package sample.parser;
 
 import jxl.write.*;
 import jxl.write.biff.RowsExceededException;
-import sample.PersonsChecker;
+
 import sample.SupportedFileTypes;
 import sample.exception.EmptyFolderException;
 import sample.exception.IndefinedTypeException;
+import sample.personChecker.PersonsChecker;
 
 import java.io.IOException;
 
