@@ -1,8 +1,11 @@
-package sample;
+package sample.parser;
 
-import jxl.Cell;
 import jxl.write.*;
 import jxl.write.biff.RowsExceededException;
+import sample.PersonsChecker;
+import sample.SupportedFileTypes;
+import sample.exception.EmptyFolderException;
+import sample.exception.IndefinedTypeException;
 
 import java.io.IOException;
 
@@ -11,7 +14,7 @@ import java.io.IOException;
  */
 public class TVParserDetailed extends TVParser {
     public TVParserDetailed (String dir, SupportedFileTypes sft)
-            throws IOException, WriteException,EmptyFolderException, IndefinedTypeException{
+            throws IOException, WriteException,EmptyFolderException, IndefinedTypeException {
         super(dir,sft);
     }
 
@@ -19,7 +22,7 @@ public class TVParserDetailed extends TVParser {
         String output = "";
         String[] abzaces=buftext.split("\n");
         for (String abzac:abzaces){
-            if (PersonsChecker.checkFactory(person,abzac)==true)output=output+"\n"+abzac;
+            if (PersonsChecker.checkFactory(person, abzac)==true)output=output+"\n"+abzac;
         }
         return output;
     }

@@ -1,22 +1,17 @@
-package sample;
+package sample.parser;
 
 import java.io.*;
 
 import java.util.Scanner;
 
-import com.lowagie.text.rtf.parser.RtfParser;
 import jxl.Workbook;
 import jxl.write.*;
-import jxl.write.Number;
 import jxl.write.biff.RowsExceededException;
-import org.apache.poi.hwpf.HWPFDocument;
-import org.apache.poi.hwpf.extractor.WordExtractor;
-import org.apache.poi.poifs.filesystem.DirectoryEntry;
-import org.apache.poi.poifs.filesystem.NPOIFSFileSystem;
-
-import javax.swing.text.BadLocationException;
-import javax.swing.text.DefaultStyledDocument;
-import javax.swing.text.rtf.RTFEditorKit;
+import sample.FilesFactory;
+import sample.PersonsChecker;
+import sample.SupportedFileTypes;
+import sample.exception.EmptyFolderException;
+import sample.exception.IndefinedTypeException;
 
 //import org.apache.poi.hwpf.HWPFDocument;
 //import org.apache.poi.hwpf.extractor.WordExtractor;
@@ -36,7 +31,7 @@ public class TVParser implements XParser{
     SupportedFileTypes sft;
 
     public TVParser (String dir, SupportedFileTypes sft)
-            throws IOException, WriteException,EmptyFolderException, IndefinedTypeException{
+            throws IOException, WriteException,EmptyFolderException, IndefinedTypeException {
         folder=dir;this.sft=sft;
         if (dir==null){throw new EmptyFolderException();}
         if (sft==null){throw new IndefinedTypeException();}
