@@ -5,4 +5,4 @@ Application for parsing text information (in txt,rtf, doc formats), define if po
 Use build.xml for Ant or download exe by link http://
 
 # Project structure
-![Alt text](https://github.com/Pragmatique/Panel/tree/NewBranch/materials/Panel.png "Optional title")
+![ScreenShot](https://github.com/Pragmatique/Panel/tree/NewBranch/materials/Panel.png "Optional title")
