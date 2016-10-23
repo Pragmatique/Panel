@@ -1,15 +1,9 @@
 package sample.controller;
 
-import javafx.application.Platform;
-import javafx.beans.InvalidationListener;
-import javafx.beans.property.StringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.stage.DirectoryChooser;
-import javafx.stage.FileChooser;
 import jxl.write.WriteException;
 import sample.*;
 import sample.exception.EmptyFolderException;
@@ -21,12 +15,8 @@ import sample.parser.TVParser;
 import sample.parser.TVParserDetailed;
 
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintStream;
-import java.lang.reflect.InvocationTargetException;
-import java.util.concurrent.Callable;
 
 
 public class Controller {
