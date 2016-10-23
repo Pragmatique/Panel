@@ -6,6 +6,6 @@ Use build.xml for Ant or download exe by link http://
 
 # Project structure
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Pragmatique/Panel/NewBranch/materials/Panel.png" width="350"/>
+  <img src="https://raw.githubusercontent.com/Pragmatique/Panel/NewBranch/materials/Panel.png" width="550"/>
 </p>
 
