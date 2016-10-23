@@ -9,3 +9,9 @@ Use build.xml for Ant or download exe by link http://
   <img src="https://raw.githubusercontent.com/Pragmatique/Panel/NewBranch/materials/Panel.png" width="550"/>
 </p>
 
+# Code structure & UML
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Pragmatique/Panel/NewBranch/materials/irisPanel.png" width="550"/>
+</p>
+
