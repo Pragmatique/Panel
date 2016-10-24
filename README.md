@@ -2,7 +2,7 @@
 Application for parsing text information (in txt,rtf, doc formats), define if politics persons are in the text. Export data in xls format
 
 # Install
-Use build.xml for Ant or download exe by link http://
+Use build.xml for Ant or download exe by link http://www.ex.ua/321199179763 , also by this link you can download materials for testing program.
 
 # Project structure
 <p align="center">
@@ -20,3 +20,19 @@ Main tasks of Model:
   <img src="https://raw.githubusercontent.com/Pragmatique/Panel/NewBranch/materials/irisPanel.png" width="550"/>
 </p>
 
+# Screenshots
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Pragmatique/Panel/NewBranch/materials/Panel1.jpg" width="550"/>
+</p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Pragmatique/Panel/NewBranch/materials/PanelException.jpg" width="550"/>
+</p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Pragmatique/Panel/NewBranch/materials/PanelDone.jpg" width="550"/>
+</p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Pragmatique/Panel/NewBranch/materials/Excel.jpg" width="550"/>
+</p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Pragmatique/Panel/NewBranch/materials/MergedFile.jpg" width="550"/>
+</p>
