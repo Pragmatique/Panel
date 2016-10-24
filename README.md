@@ -21,18 +21,23 @@ Main tasks of Model:
 </p>
 
 # Screenshots
+Start process
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Pragmatique/Panel/NewBranch/materials/Panel1.jpg" width="550"/>
+  <img src="https://raw.githubusercontent.com/Pragmatique/Panel/NewBranch/materials/Panel1.JPG" width="550"/>
 </p>
+Program throw exception if data insert not correctly
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Pragmatique/Panel/NewBranch/materials/PanelException.jpg" width="550"/>
+  <img src="https://raw.githubusercontent.com/Pragmatique/Panel/NewBranch/materials/PanelException.JPG" width="550"/>
 </p>
+Process done
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Pragmatique/Panel/NewBranch/materials/PanelDone.jpg" width="550"/>
+  <img src="https://raw.githubusercontent.com/Pragmatique/Panel/NewBranch/materials/PanelDone.JPG" width="550"/>
 </p>
+Result excel file
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Pragmatique/Panel/NewBranch/materials/Excel.jpg" width="550"/>
+  <img src="https://raw.githubusercontent.com/Pragmatique/Panel/NewBranch/materials/Excel.JPG" width="550"/>
 </p>
+Result merged file for .rtf
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Pragmatique/Panel/NewBranch/materials/MergedFile.jpg" width="550"/>
+  <img src="https://raw.githubusercontent.com/Pragmatique/Panel/NewBranch/materials/MergedFile.JPG" width="550"/>
 </p>
