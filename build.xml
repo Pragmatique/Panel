@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="panel" default="all">
+  
+  
+  <property file="build.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/.pyc/**"/>
+    <exclude name="**/.pyo/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/*.lib/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/.bundle/**"/>
+    <exclude name="**/*.rbc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.ear"/>
+    <include name="*.apk"/>
+    <include name="*.zip"/>
+    <include name="*.ane"/>
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+      <include name="jre/lib/ext/access-bridge-32.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.dom4j-2.0.0-rc1.classpath">
+    <pathelement location="${basedir}/lib/dom4j-2.0.0-RC1.jar"/>
+  </path>
+  
+  <path id="library.itext-2.1.7.classpath">
+    <pathelement location="${basedir}/lib/itext-2.1.7.jar"/>
+  </path>
+  
+  <path id="library.itext-rtf-2.1.7.classpath">
+    <pathelement location="${basedir}/lib/itext-rtf-2.1.7.jar"/>
+  </path>
+  
+  <path id="library.jxl-2.6.3.classpath">
+    <pathelement location="${basedir}/lib/jxl-2.6.3.jar"/>
+  </path>
+  
+  <path id="library.ooxml-schemas-1.1.classpath">
+    <pathelement location="${basedir}/lib/ooxml-schemas-1.1.jar"/>
+  </path>
+  
+  <path id="library.ooxml-schemas-1.3.classpath">
+    <pathelement location="${basedir}/lib/ooxml-schemas-1.3.jar"/>
+  </path>
+  
+  <path id="library.poi-3.9.classpath">
+    <pathelement location="${basedir}/lib/poi-3.9.jar"/>
+  </path>
+  
+  <path id="library.poi-ooxml-3.9.classpath">
+    <pathelement location="${basedir}/lib/poi-ooxml-3.9.jar"/>
+  </path>
+  
+  <path id="library.poi-scratchpad-3.9.classpath">
+    <pathelement location="${basedir}/lib/poi-scratchpad-3.9.jar"/>
+  </path>
+  
+  <path id="library.xmlbeans-2.6.0.classpath">
+    <pathelement location="${basedir}/lib/xmlbeans-2.6.0.jar"/>
+  </path>
+  
+  
+  <!-- Global Libraries -->
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm4-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module Panel -->
+  
+  <dirname property="module.panel.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.panel" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.panel" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.panel" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.panel" value="-encoding UTF-8 -source 8 ${compiler.args}"/>
+  
+  <property name="panel.output.dir" value="${module.panel.basedir}/out/production/Panel"/>
+  <property name="panel.testoutput.dir" value="${module.panel.basedir}/out/test/Panel"/>
+  
+  <path id="panel.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="panel.module.production.classpath">
+    <path refid="${module.jdk.classpath.panel}"/>
+    <pathelement location="${idea.home}/lib/groovy-all-2.2.1.jar"/>
+    <path refid="library.itext-2.1.7.classpath"/>
+    <path refid="library.itext-rtf-2.1.7.classpath"/>
+    <path refid="library.jxl-2.6.3.classpath"/>
+    <path refid="library.poi-scratchpad-3.9.classpath"/>
+    <path refid="library.poi-3.9.classpath"/>
+    <path refid="library.poi-ooxml-3.9.classpath"/>
+    <path refid="library.ooxml-schemas-1.3.classpath"/>
+    <path refid="library.xmlbeans-2.6.0.classpath"/>
+    <path refid="library.dom4j-2.0.0-rc1.classpath"/>
+    <path refid="library.ooxml-schemas-1.1.classpath"/>
+  </path>
+  
+  <path id="panel.runtime.production.module.classpath">
+    <pathelement location="${panel.output.dir}"/>
+    <pathelement location="${idea.home}/lib/groovy-all-2.2.1.jar"/>
+    <path refid="library.itext-2.1.7.classpath"/>
+    <path refid="library.itext-rtf-2.1.7.classpath"/>
+    <path refid="library.jxl-2.6.3.classpath"/>
+    <path refid="library.poi-scratchpad-3.9.classpath"/>
+    <path refid="library.poi-3.9.classpath"/>
+    <path refid="library.poi-ooxml-3.9.classpath"/>
+    <path refid="library.ooxml-schemas-1.3.classpath"/>
+    <path refid="library.xmlbeans-2.6.0.classpath"/>
+    <path refid="library.dom4j-2.0.0-rc1.classpath"/>
+    <path refid="library.ooxml-schemas-1.1.classpath"/>
+  </path>
+  
+  <path id="panel.module.classpath">
+    <path refid="${module.jdk.classpath.panel}"/>
+    <pathelement location="${panel.output.dir}"/>
+    <pathelement location="${idea.home}/lib/groovy-all-2.2.1.jar"/>
+    <path refid="library.itext-2.1.7.classpath"/>
+    <path refid="library.itext-rtf-2.1.7.classpath"/>
+    <path refid="library.jxl-2.6.3.classpath"/>
+    <path refid="library.poi-scratchpad-3.9.classpath"/>
+    <path refid="library.poi-3.9.classpath"/>
+    <path refid="library.poi-ooxml-3.9.classpath"/>
+    <path refid="library.ooxml-schemas-1.3.classpath"/>
+    <path refid="library.xmlbeans-2.6.0.classpath"/>
+    <path refid="library.dom4j-2.0.0-rc1.classpath"/>
+    <path refid="library.ooxml-schemas-1.1.classpath"/>
+  </path>
+  
+  <path id="panel.runtime.module.classpath">
+    <pathelement location="${panel.testoutput.dir}"/>
+    <pathelement location="${panel.output.dir}"/>
+    <pathelement location="${idea.home}/lib/groovy-all-2.2.1.jar"/>
+    <path refid="library.itext-2.1.7.classpath"/>
+    <path refid="library.itext-rtf-2.1.7.classpath"/>
+    <path refid="library.jxl-2.6.3.classpath"/>
+    <path refid="library.poi-scratchpad-3.9.classpath"/>
+    <path refid="library.poi-3.9.classpath"/>
+    <path refid="library.poi-ooxml-3.9.classpath"/>
+    <path refid="library.ooxml-schemas-1.3.classpath"/>
+    <path refid="library.xmlbeans-2.6.0.classpath"/>
+    <path refid="library.dom4j-2.0.0-rc1.classpath"/>
+    <path refid="library.ooxml-schemas-1.1.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.panel">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.panel">
+    <patternset refid="excluded.from.module.panel"/>
+  </patternset>
+  
+  <path id="panel.module.sourcepath">
+    <dirset dir="${module.panel.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.panel" depends="compile.module.panel.production,compile.module.panel.tests" description="Compile module Panel"/>
+  
+  <target name="compile.module.panel.production" depends="register.custom.compilers" description="Compile module Panel; production classes">
+    <mkdir dir="${panel.output.dir}"/>
+    <javac2 destdir="${panel.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.panel}/javac">
+      <compilerarg line="${compiler.args.panel}"/>
+      <bootclasspath refid="panel.module.bootclasspath"/>
+      <classpath refid="panel.module.production.classpath"/>
+      <src refid="panel.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.panel"/>
+    </javac2>
+    
+    <copy todir="${panel.output.dir}">
+      <fileset dir="${module.panel.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.panel.tests" depends="register.custom.compilers,compile.module.panel.production" description="compile module Panel; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.panel" description="cleanup module">
+    <delete dir="${panel.output.dir}"/>
+    <delete dir="${panel.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.panel, clean.artifact.javafxapp" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.panel" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.javafxapp" value="${basedir}/out/artifacts/JavaFXApp"/>
+    <property name="artifact.output.panel:jar" value="${basedir}/out/artifacts/Panel"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="artifact.temp.output.JavaFXApp" value="${artifacts.temp.dir}/JavaFXApp.jar"/>
+    <property name="temp.jar.path.Panel.jar" value="${artifacts.temp.dir}/Panel.jar"/>
+    <taskdef resource="com/sun/javafx/tools/ant/antlib.xml" uri="javafx:com.sun.javafx.tools.ant" classpath="${jdk.home.1.8}/lib/ant-javafx.jar"/>
+  </target>
+  
+  <target name="clean.artifact.javafxapp" description="clean JavaFXApp artifact output">
+    <delete dir="${artifact.output.javafxapp}"/>
+  </target>
+  
+  <target name="artifact.javafxapp" depends="init.artifacts, compile.module.panel" description="Build &#39;JavaFXApp&#39; artifact" xmlns:fx="javafx:com.sun.javafx.tools.ant">
+    <mkdir dir="${artifact.output.javafxapp}"/>
+    <copy todir="${artifact.temp.output.JavaFXApp}">
+      <fileset dir="${panel.output.dir}"/>
+    </copy>
+    <fx:fileset id="all_but_JavaFXApp" dir="${artifact.temp.output.JavaFXApp}" includes="**/*.jar">
+      <exclude name="JavaFXApp.jar"/>
+    </fx:fileset>
+    <fx:fileset id="all_JavaFXApp" dir="${artifact.temp.output.JavaFXApp}" includes="**/*.jar"/>
+    <fx:application id="JavaFXApp_id" name="JavaFXApp" mainClass="sample.Main"/>
+    <fx:jar destfile="${artifact.temp.output.JavaFXApp}\JavaFXApp.jar">
+      <fx:application refid="JavaFXApp_id"/>
+      <fileset dir="${artifact.temp.output.JavaFXApp}" excludes="**/*.jar"/>
+      <fx:resources>
+        <fx:fileset refid="all_but_JavaFXApp"/>
+      </fx:resources>
+      <manifest/>
+    </fx:jar>
+    <fx:deploy width="600" height="400" updatemode="background" outdir="${artifact.temp.output.JavaFXApp}\deploy" outfile="JavaFXApp">
+      <fx:application refid="JavaFXApp_id"/>
+      <fx:resources>
+        <fx:fileset refid="all_JavaFXApp"/>
+      </fx:resources>
+    </fx:deploy>
+    <copy todir="${artifact.output.javafxapp}">
+      <fileset dir="${artifact.temp.output.JavaFXApp}/deploy"/>
+    </copy>
+    <delete includeemptydirs="true">
+      <fileset dir="${artifact.temp.output.JavaFXApp}"/>
+    </delete>
+  </target>
+  
+  <target name="artifact.panel:jar" depends="init.artifacts, compile.module.panel" description="Build &#39;Panel:jar&#39; artifact">
+    <property name="artifact.temp.output.panel:jar" value="${artifacts.temp.dir}/Panel_jar"/>
+    <mkdir dir="${artifact.temp.output.panel:jar}"/>
+    <jar destfile="${temp.jar.path.Panel.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset dir="${panel.output.dir}"/>
+      <zipfileset src="${basedir}/lib/itext-2.1.7.jar"/>
+      <zipfileset src="${idea.home}/lib/groovy-all-2.2.1.jar"/>
+      <zipfileset src="${basedir}/lib/jxl-2.6.3.jar"/>
+      <zipfileset src="${basedir}/lib/itext-rtf-2.1.7.jar"/>
+    </jar>
+    <copy file="${temp.jar.path.Panel.jar}" tofile="${artifact.temp.output.panel:jar}/Panel.jar"/>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.javafxapp, artifact.panel:jar" description="Build all artifacts">
+    <mkdir dir="${artifact.output.panel:jar}"/>
+    <copy todir="${artifact.output.panel:jar}">
+      <fileset dir="${artifact.temp.output.panel:jar}"/>
+    </copy>
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>
