@@ -33,6 +33,7 @@
                     <MenuItem mnemonicParsing="false" onAction="#parser" text="ParseTV" />
                         <MenuItem mnemonicParsing="false" onAction="#parserRadio" text="ParseRadio" />
                         <MenuItem mnemonicParsing="false" onAction="#detailedTVParser" text="DetailedTVParser" />
+                        <MenuItem mnemonicParsing="false" onAction="#detailedTVParser" text="LightParser" />
                   </items>
                 </Menu>
                   <Menu mnemonicParsing="false" text="Merge">
