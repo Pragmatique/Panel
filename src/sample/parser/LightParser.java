@@ -20,12 +20,13 @@ public class LightParser extends TVParser {
     @Override
     String[] findTime(String file){
 
-        int indexbegin = file.indexOf("Дата выпуска:",0)+24;
+        int start = file.indexOf("Источник:",0);
+        int indexbegin = file.indexOf("выпуск ",start)+6;
 
                 //int indexend = file.indexOf(':',indexbegin);
         String [] output ={"",""};
 
-        output[0] = file.substring(indexbegin+1,indexbegin+9);
+        output[0] = file.substring(indexbegin+1,indexbegin+6);
         output[1] = "";
         return output;
 
