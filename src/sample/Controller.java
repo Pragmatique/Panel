@@ -15,6 +15,7 @@ import sample.exception.EmptyFolderException;
 import sample.exception.IndefinedTypeException;
 import sample.fileFactory.FilesFactory;
 import sample.fileMerger.FileMerger;
+import sample.parser.LightParser;
 import sample.parser.RadioParser;
 import sample.parser.TVParser;
 import sample.parser.TVParserDetailed;
@@ -199,4 +200,22 @@ public class Controller {
     }
 
 
+    public void lightParser(ActionEvent actionEvent) {
+        msg=msg+"\n"+"Processing........";
+        MyLabel0.setText(msg);
+        //MyLabel0.notifyAll();
+
+        try {
+
+            LightParser ltprs = new LightParser(directory,sft);
+            ltprs.start();
+        }catch (IOException ex){ex.printStackTrace(); msg=msg+"\n"+ex.getClass().toString();MyLabel0.setText(msg);}
+        catch (IndefinedTypeException ite){msg=msg+"\n"+"Please, set fileType!"+"\n"+ite.getClass().toString();MyLabel0.setText(msg);}
+        catch (EmptyFolderException efe){msg=msg+"\n"+"Directory is empty or unhandled"+"\n"+efe.getClass().toString();MyLabel0.setText(msg);}
+        catch (WriteException we){we.printStackTrace();msg=msg+"\n"+we.getClass().toString();MyLabel0.setText(msg);}
+
+        msg=msg+"\n"+"Process finished";
+        MyLabel0.setText(msg);
+
+    }
 }

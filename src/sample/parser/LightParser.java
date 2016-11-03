@@ -26,7 +26,7 @@ public class LightParser extends TVParser {
         String [] output ={"",""};
 
         output[0] = file.substring(indexbegin+1,indexbegin+9);
-        output[1] = file.substring(indexbegin+10,indexbegin+18);
+        output[1] = "";
         return output;
 
     }
