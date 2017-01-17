@@ -50,7 +50,7 @@ public class LightParser extends TVParser {
 
         }
 
-        output=sb.toString().replaceAll("\\s+"," ").trim();
+        output=sb.toString().trim();
         return output;
     }
 

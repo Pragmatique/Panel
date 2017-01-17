@@ -247,7 +247,7 @@ public class TVParser implements XParser{
 
         }
 
-        output=sb.toString().replaceAll("\\s+"," ").trim();
+        output=sb.toString().trim();
         return output;
     }
 

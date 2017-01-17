@@ -86,7 +86,7 @@ public class RadioParser extends TVParser{
         //sb.append(".");
         //sb.append(sentences[1]);
         //sb.append(".");
-        output=sb.toString().replaceAll("\\s+"," ").trim();
+        output=sb.toString().trim();
         return output;
     }
 

@@ -31,13 +31,13 @@ public class PressParser extends LightParser {
     @Override
     String[] findTime(String file){
 
-        int indexbegin = file.indexOf("Номер выпуска:",0);
+        int indexbegin = file.indexOf("Номер выпуска:",0)+14;
         int indexend = file.indexOf("Дата выпуска:",indexbegin);
 
         //int indexend = file.indexOf(':',indexbegin);
         String [] output ={"",""};
 
-        output[0] = file.substring(indexbegin+1,indexend-1).replaceAll("\\s+"," ").trim();
+        output[0] = file.substring(indexbegin,indexend-1).replaceAll("\\s+"," ").trim();
 
         output[1] = "";
         return output;
@@ -48,7 +48,7 @@ public class PressParser extends LightParser {
     String findText(String file){
 
         int begin = file.indexOf("Категория источника:",0);
-        int first = file.indexOf("\n",begin)+3;
+        int first = file.indexOf("\n",begin)+1;
         //int indexend = file.indexOf(':',indexbegin);
         String output="";
         String fortrim = file.substring(first,file.length());
@@ -62,7 +62,7 @@ public class PressParser extends LightParser {
 
         }
 
-        output=sb.toString().replaceAll("\\s+"," ").trim();
+        output=sb.toString().trim();
         return output;
     }
 
