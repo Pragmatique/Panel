@@ -35,7 +35,7 @@ public class RadioParser extends TVParser{
         int indexbegin = file.indexOf("Источник:",0)+9;
         int indexend = file.indexOf(':',indexbegin);
         String output;
-        output = file.substring(indexbegin,indexend);
+        output = file.substring(indexbegin,indexend).replaceAll("\\s+"," ").trim();
         return output;
 
         /*char[]charr=file.toCharArray();
@@ -52,7 +52,7 @@ public class RadioParser extends TVParser{
         int indexDate = file.indexOf("Дата выпуска:",0)+14;
         //int indexend = file.indexOf(':',indexbegin);
         String output;
-        output = file.substring(indexDate,indexDate+10);
+        output = file.substring(indexDate,indexDate+10).trim();
         return output;
     }
 
@@ -62,7 +62,7 @@ public class RadioParser extends TVParser{
         int firstEnter = file.indexOf("\n",0);
         //int indexend = file.indexOf(':',indexbegin);
         String output;
-        output = file.substring(0,firstEnter-1);
+        output = file.substring(0,firstEnter-1).replaceAll("\\s+"," ").trim();
         return output;
     }
 
@@ -86,7 +86,7 @@ public class RadioParser extends TVParser{
         //sb.append(".");
         //sb.append(sentences[1]);
         //sb.append(".");
-        output=sb.toString();
+        output=sb.toString().replaceAll("\\s+"," ").trim();
         return output;
     }
 
@@ -98,8 +98,8 @@ public class RadioParser extends TVParser{
         //int indexend = file.indexOf(':',indexbegin);
         String [] output ={"",""};
 
-        output[0] = file.substring(begin-17,begin-9);
-        output[1] = file.substring(begin-8,begin);
+        output[0] = file.substring(begin-17,begin-9).trim();
+        output[1] = file.substring(begin-8,begin).trim();
         return output;
 
     }

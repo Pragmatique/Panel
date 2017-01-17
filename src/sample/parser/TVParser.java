@@ -209,7 +209,7 @@ public class TVParser implements XParser{
         int indexbegin = file.indexOf("Источник:",0)+9;
         int indexend = file.indexOf(':',indexbegin);
         String output;
-        output = file.substring(indexbegin,indexend);
+        output = file.substring(indexbegin,indexend).replaceAll("\\s+"," ").trim();
         return output;
 
     }
@@ -219,7 +219,7 @@ public class TVParser implements XParser{
         int indexDate = file.indexOf("Дата выпуска:",0)+14;
         //int indexend = file.indexOf(':',indexbegin);
         String output;
-        output = file.substring(indexDate,indexDate+10);
+        output = file.substring(indexDate,indexDate+10).replaceAll("\\s+"," ").trim();
         return output;
     }
 
@@ -228,7 +228,7 @@ public class TVParser implements XParser{
         int firstEnter = file.indexOf("\n",0);
         //int indexend = file.indexOf(':',indexbegin);
         String output;
-        output = file.substring(0,firstEnter-1);
+        output = file.substring(0,firstEnter-1).replaceAll("\\s+"," ").trim();
         return output;
     }
 
@@ -247,7 +247,7 @@ public class TVParser implements XParser{
 
         }
 
-        output=sb.toString();
+        output=sb.toString().replaceAll("\\s+"," ").trim();
         return output;
     }
 
@@ -258,8 +258,8 @@ public class TVParser implements XParser{
         //int indexend = file.indexOf(':',indexbegin);
         String [] output ={"",""};
 
-        output[0] = file.substring(indexbegin+1,indexbegin+9);
-        output[1] = file.substring(indexbegin+10,indexbegin+18);
+        output[0] = file.substring(indexbegin+1,indexbegin+9).trim();
+        output[1] = file.substring(indexbegin+10,indexbegin+18).trim();
         return output;
 
     }

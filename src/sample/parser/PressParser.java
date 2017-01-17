@@ -8,25 +8,37 @@ import sample.exception.IndefinedTypeException;
 import java.io.IOException;
 
 /**
- * Created by User on 03.11.2016.
+ * Created by User on 17.01.2017.
  */
-public class LightParser extends TVParser {
+public class PressParser extends LightParser {
 
-    public LightParser (String dir, SupportedFileTypes sft)
+    public PressParser (String dir, SupportedFileTypes sft)
             throws IOException, WriteException,EmptyFolderException, IndefinedTypeException {
         super(dir,sft);
     }
 
     @Override
+    String findSource(String file){
+        //String file = fi;
+        int indexbegin = file.indexOf("Источник:",0)+9;
+        int indexend = file.indexOf("Номер выпуска",indexbegin);
+        String output;
+        output = file.substring(indexbegin,indexend-1).replaceAll("\\s+"," ").trim();
+        return output;
+
+    }
+
+    @Override
     String[] findTime(String file){
 
-        int start = file.indexOf("Источник:",0);
-        int indexbegin = file.indexOf("выпуск ",start)+6;
+        int indexbegin = file.indexOf("Номер выпуска:",0);
+        int indexend = file.indexOf("Дата выпуска:",indexbegin);
 
-                //int indexend = file.indexOf(':',indexbegin);
+        //int indexend = file.indexOf(':',indexbegin);
         String [] output ={"",""};
 
-        output[0] = file.substring(indexbegin+1,indexbegin+6).replaceAll("\\s+"," ").trim();
+        output[0] = file.substring(indexbegin+1,indexend-1).replaceAll("\\s+"," ").trim();
+
         output[1] = "";
         return output;
 
@@ -35,8 +47,8 @@ public class LightParser extends TVParser {
     @Override
     String findText(String file){
 
-        int begin = file.indexOf("Дата выпуска:",0);
-        int first = file.indexOf("\n\n\n",begin)+3;
+        int begin = file.indexOf("Категория источника:",0);
+        int first = file.indexOf("\n",begin)+3;
         //int indexend = file.indexOf(':',indexbegin);
         String output="";
         String fortrim = file.substring(first,file.length());
@@ -53,5 +65,8 @@ public class LightParser extends TVParser {
         output=sb.toString().replaceAll("\\s+"," ").trim();
         return output;
     }
+
+
+
 
 }
